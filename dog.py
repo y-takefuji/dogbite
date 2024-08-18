@@ -37,6 +37,9 @@ plt.title('Monthly Dog Bites for Selected Breeds')
 # Set 15 xticks
 xticks = monthly_bites.index.to_timestamp()[::max(1, len(monthly_bites) // 15)]
 plt.xticks(xticks, rotation=90)
+plt.tight_layout()
+safe_breeds = [breed.replace('/', '_') for breed in selected_breeds]
+plt.savefig(str(safe_breeds)+'.png',dpi=300)
 plt.show()
 
 # Plot gender-specific bites for selected breeds
@@ -57,5 +60,7 @@ plt.title('Monthly Dog Bites by Gender for Selected Breeds')
 # Set 15 xticks
 xticks = gender_bites.index.to_timestamp()[::max(1, len(gender_bites) // 15)]
 plt.xticks(xticks, rotation=90)
+plt.tight_layout()
+plt.savefig(str(safe_breeds)+'-MF.png',dpi=300)
 plt.show()
 
